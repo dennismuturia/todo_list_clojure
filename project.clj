@@ -6,5 +6,4 @@
   :dependencies [[org.clojure/clojure "1.8.0"]
   [ring "1.4.0"]]
   :main ^:skip-aot todo-list.core
-  :target-path "target/%s"
-  :profiles {:uberjar {:aot :all}})
+  )
