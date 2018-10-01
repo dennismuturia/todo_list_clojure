@@ -1,7 +1,5 @@
+;;Include the ring namespase and remove the previous code for hello world
 (ns todo-list.core
-  (:gen-class))
+  (:require [ring.adapter.jetty :as jetty])
 
-(defn -main
-  "I don't do a whole lot ... yet."
-  [& args]
-  (println "Hello, World!"))
+
