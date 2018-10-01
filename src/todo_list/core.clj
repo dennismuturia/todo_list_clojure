@@ -1,5 +1,6 @@
 (ns todo-list.core
-  (:require [ring.adapter.jetty :as jetty]))
+  (:require [ring.adapter.jetty :as jetty]
+  [ring.middleware.reload :refer [wrap-reload]]))
 
 ;;Include the main that will contain to run Jetty and Ring
 (defn -main
@@ -22,3 +23,10 @@
   :body "<h1>Sorry the page cant be found</h1>
     <p>Page not found</p>"
     :headers {}}))
+
+;;This is only used in development
+(defn -dev-main
+  [port-number]
+  (jetty/run-jetty
+    (wrap-reload #'welcome)
+    {:port (Integer. port-number)}))
