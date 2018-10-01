@@ -1,6 +1,7 @@
 (ns todo-list.core
   (:require [ring.adapter.jetty :as jetty]
-  [ring.middleware.reload :refer [wrap-reload]]))
+  [ring.middleware.reload :refer [wrap-reload]]
+  [compojure.core :refer :all]))
 
 ;;Include the main that will contain to run Jetty and Ring
 (defn -main
