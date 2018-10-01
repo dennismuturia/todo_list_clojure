@@ -15,9 +15,9 @@
 (defn welcome
   "A handler to process the request sent to the web application"
   [request]
-  (if ("/" (:uri request))
+  (if (= "/" (:uri request))
   {:status 200
-  :body "<h1>Hello Clojure world </h1> <p> Welcome to my application </p>"
+  :body "<h1>Hello Clojure world </h1> <p> Welcome to my application </p> <h5> Heeyyy</h5>"
   :headers {}}
   {:status 404
   :body "<h1>Sorry the page cant be found</h1>
