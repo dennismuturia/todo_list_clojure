@@ -1,16 +1,12 @@
-# todo_list
+# todo_list_CLOJURE
 
-FIXME: description
+This is just a simple application on the todo_list on the clojure application
 
 ## Installation
 
-Download from http://example.com/FIXME.
+Will update this later
 
-## Usage
 
-FIXME: explanation
-
-    $ java -jar todo_list-0.1.0-standalone.jar [args]
 
 ## Options
 
@@ -30,7 +26,6 @@ FIXME: listing of options this app accepts.
 
 ## License
 
-Copyright © 2018 FIXME
+Copyright © 2018 Denni Muturia
 
-Distributed under the Eclipse Public License either version 1.0 or (at
-your option) any later version.
+Distributed under the Eclipse Public License either version 1.0 or  any later version.
