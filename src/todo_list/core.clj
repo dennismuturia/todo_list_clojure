@@ -6,15 +6,21 @@
   [ring.handler.dump :refer [handle-dump]]))
 
 ;;Define operands
-(def operands {"+" + "-" - "*" * ":" /}
+(def operands {"+" + "-" - "*" * ":" /})
 ;;Now we are creating a lisp based calculator
 (defn calculator
 "This will be a very simple handler that takes two numbers and adds them with an operand chosen"
   [request]
-  (let [a (Interger. (get-in request [:route-params :a]))
-        b (Integer. (get-in request [:route-params] :b))
+  (let [a (Integer. (get-in request [:route-params :a]))
+        b (Integer. (get-in request [:route-params :b]))
         op (get-in request [:route-params :op])
-        f (get operands op)])
+        f (get operands op)]
+        (if f {:status 200
+                :body (str (f a b))
+                :headers{}}
+                {:status 404
+                :body "Sorry unknown operator"
+                :headers{}}))
 )
 (defn welcome
   "A handler to process the request sent to the web application"
@@ -61,6 +67,7 @@
   (GET "/about" [] about)
   (GET "/request-info" [] handle-dump)
   (GET "/hello/:name" [] hello)
+  (GET "/calc/:a/:op/:b" [] calculator)
   (not-found "<h1>This is not you are looking for</h1><p>Am so sorry</p>")
 )
 
