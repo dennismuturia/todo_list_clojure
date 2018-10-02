@@ -13,6 +13,15 @@
   :body "<h1>Hello to thecompojure site</h2>"
   :headers{}}
 )
+;;Pass a variable to the path
+(defn hello
+  [request]
+  (let [name (get-in request [:route-params :name])]
+    {:status 200
+    :body (str "Hello " name " I got your name through the url")
+    :headers{}}
+  )
+)
 
 ;;Create an about handler
 (defn about
@@ -41,6 +50,7 @@
   (GET "/goodbye" [] goodbye)
   (GET "/about" [] about)
   (GET "/request-info" [] handle-dump)
+  (GET "/hello/:name" [] hello)
   (not-found "<h1>This is not you are looking for</h1><p>Am so sorry</p>")
 )
 
