@@ -13,13 +13,26 @@
   :headers{}}
 )
 
+;;Create an about handler
+(defn about
+  [request]
+  {:status 200
+  :body "<p>This is about me</p>"
+  :headers{}}
+)
+;;Define a goodbye handler
+(defn goodbye
+  [request]
+  {:status 200
+  :body "<h2>Goodbye man. See you later</h2>"
+  :headers{}}
+)
 ;;Create a route to the home
 (defroutes app
   (GET "/" [] welcome)
+  (GET "/goodbye" [] goodbye)
+  (GET "/about" [] about)
   (not-found "<h1>This is not you are looking for</h1><p>Am so sorry</p>")
-)
-;;A goodbye routr
-(defroutes goodbye
 )
 
 (defn -main
