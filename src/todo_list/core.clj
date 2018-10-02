@@ -2,7 +2,8 @@
   (:require [ring.adapter.jetty :as jetty]
   [ring.middleware.reload :refer [wrap-reload]]
   [compojure.core :refer :all]
-  [compojure.route :refer [not-found]]))
+  [compojure.route :refer [not-found]]
+  [ring.handler.dump :refer [handle-dump]]))
 
 
 (defn welcome
@@ -32,15 +33,14 @@
   [request]
   {:status 200
   :body (pr-str request)
-  :headers{}}
+  :headers {}}
 )
 ;;Create a route to the home
 (defroutes app
   (GET "/" [] welcome)
   (GET "/goodbye" [] goodbye)
   (GET "/about" [] about)
-  "We are going to see the information sent to the clojure webapp in the route below"
-  (GET "/request-info" [] request-info)
+  (GET "/request-info" [] handle-dump)
   (not-found "<h1>This is not you are looking for</h1><p>Am so sorry</p>")
 )
 
