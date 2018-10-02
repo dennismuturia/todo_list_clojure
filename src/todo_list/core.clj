@@ -18,6 +18,9 @@
   (GET "/" [] welcome)
   (not-found "<h1>This is not you are looking for</h1><p>Am so sorry</p>")
 )
+;;A goodbye routr
+(defroutes goodbye
+)
 
 (defn -main
 "The start of the webservice"
