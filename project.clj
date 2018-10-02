@@ -8,5 +8,7 @@
   [compojure "1.1.8"]
   [http-kit "2.1.16"]]
   :main todo-list.core
+  :min-lein-version "2.0.0"
+  :uberjar-name "todo-list.jar"
   :profiles {:dev {:main todo-list.core/-dev-main}}
   )
