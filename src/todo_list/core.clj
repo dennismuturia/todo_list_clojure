@@ -27,11 +27,20 @@
   :body "<h2>Goodbye man. See you later</h2>"
   :headers{}}
 )
+;;Create a request information to see what is being sent to our web applicaton
+(defn request-info
+  [request]
+  {:status 200
+  :body (pr-str request)
+  :headers{}}
+)
 ;;Create a route to the home
 (defroutes app
   (GET "/" [] welcome)
   (GET "/goodbye" [] goodbye)
   (GET "/about" [] about)
+  "We are going to see the information sent to the clojure webapp in the route below"
+  (GET "/request-info" [] request-info)
   (not-found "<h1>This is not you are looking for</h1><p>Am so sorry</p>")
 )
 
