@@ -5,7 +5,17 @@
   [compojure.route :refer [not-found]]
   [ring.handler.dump :refer [handle-dump]]))
 
-
+;;Define operands
+(def operands {"+" + "-" - "*" * ":" /}
+;;Now we are creating a lisp based calculator
+(defn calculator
+"This will be a very simple handler that takes two numbers and adds them with an operand chosen"
+  [request]
+  (let [a (Interger. (get-in request [:route-params :a]))
+        b (Integer. (get-in request [:route-params] :b))
+        op (get-in request [:route-params :op])
+        f (get operands op)])
+)
 (defn welcome
   "A handler to process the request sent to the web application"
   [request]
